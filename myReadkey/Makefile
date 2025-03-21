@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -I../include
 
 SRCS = rk_mytermregime.c rk_mytermrestore.c rk_mytermsave.c rk_readkey.c
 

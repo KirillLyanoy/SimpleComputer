@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -I../include
 
 SRCS = bc_bigcharread.c bc_bigcharwrite.c bc_box.c bc_getbigcharpos.c bc_printA.c bc_printbigchar.c bc_setbigcharpos.c
 

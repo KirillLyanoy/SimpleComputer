@@ -1,6 +1,6 @@
 #include "myBigChars.h"
 
-int bc_printbigchar (int symbol[2], int x, int y, enum color fg_color, enum color bg_color) {
+int bc_printbigchar (int symbol[2], int x, int y, enum char_color fg_color, enum char_color bg_color) {
     if (fg_color < BLACK || fg_color > DEFAULT || bg_color < BLACK || fg_color > DEFAULT || x < 0 || y < 0) return -1;
     printf("\033[%d;%dH\033(0", x, y);
 

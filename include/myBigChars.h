@@ -17,7 +17,7 @@
 #define BIG_SYMBOL_9 1111638588, 1010974844
 #define BIG_SYMBOL_PLUS 404226048, 1579134
 
-enum color {
+enum char_color {
     BLACK = 0,
     RED = 1,
     GREEN = 2,
@@ -33,7 +33,7 @@ int bc_printA (char * str);
 
 int bc_box(int x1, int y1, int x2, int y2);
 
-int bc_printbigchar (int symbol[2], int x, int y, enum color fg_color, enum color bg_color);
+int bc_printbigchar (int symbol[2], int x, int y, enum char_color fg_color, enum char_color bg_color);
 
 int bc_setbigcharpos (int * big, int x, int y, int value);
 
