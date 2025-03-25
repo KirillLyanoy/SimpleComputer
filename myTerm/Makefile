@@ -5,7 +5,7 @@ SRCS = mt_clrscr.c mt_getscreensize.c mt_gotoXY.c mt_setbgcolor.c mt_setfgcolor.
 
 OBJS = $(SRCS:.c=.o)
 
-LIBRARY = myTerm.a
+LIBRARY = libmyTerm.a
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

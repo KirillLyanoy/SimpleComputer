@@ -1,6 +1,6 @@
 #include "myReadkey.h"
 
-int rk_readkey (enum keys *key) {
+int rk_readkey (int *key) {
     char read_keys[8];
 
     int num_read = read(0, read_keys, sizeof(read_keys)) - 1;

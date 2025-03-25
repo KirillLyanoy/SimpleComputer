@@ -6,15 +6,15 @@
 #include <unistd.h>
 
 enum color {
-    BLACK = 0,
-    RED = 1,
-    GREEN = 2,
-    YELLOW = 3,
-    BLUE = 4,
-    MAGENTA = 5,
-    CYAN = 6,
-    WHITE = 7,
-    DEFAULT = 9
+    C_BLACK = 0,
+    C_RED = 1,
+    C_GREEN = 2,
+    C_YELLOW = 3,
+    C_BLUE = 4,
+    C_MAGENTA = 5,
+    C_CYAN = 6,
+    C_WHITE = 7,
+    C_DEFAULT = 9
 };
 
 int mt_clrscr(void);

@@ -1,22 +1,36 @@
 #ifndef __GUARD_MYREADKEY_H
 #define __GUARD_MYREADKEY_H
 
+#define KEY_I 9 
+#define KEY_L 12 
+#define KEY_R 18 
+#define KEY_S 19 
+#define KEY_T 20
+#define KEY_1 27 
+#define KEY_2 28 
+#define KEY_3 29 
+#define KEY_4 30 
+#define KEY_5 31
+#define KEY_6 32
+#define KEY_7 33
+#define KEY_8 34 
+#define KEY_9 35 
+#define KEY_0 36
+#define KEY_UP 37
+#define KEY_DOWN 38
+#define KEY_LEFT 39
+#define KEY_RIGHT 40
+#define KEY_F5 41
+#define KEY_F6 42
+#define Enter 43
+#define Escape 44
+
 #include <unistd.h>
 #include <termios.h>
 
-enum keys {
-    KEY_I = 9, KEY_L = 12, KEY_R = 18, KEY_S = 19, KEY_T = 20,
+extern struct termios original_term;
 
-    KEY_1 = 27, KEY_2 = 28, KEY_3 = 29, KEY_4 = 30, KEY_5 = 31, KEY_6 = 32, KEY_7 = 33, KEY_8 = 34, KEY_9 = 35, KEY_0 = 36,
-
-    KEY_UP = 37, KEY_DOWN = 38, KEY_LEFT = 39, KEY_RIGHT = 40, 
-
-    KEY_F5 = 41, KEY_F6 = 42,    
-};
-
-static struct termios original_term;
-
-int rk_readkey (enum keys *key);
+int rk_readkey (int *key);
 
 int rk_mytermsave(void);
 

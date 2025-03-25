@@ -1,0 +1,34 @@
+#ifndef __GUARD_CONSOLE_H
+#define __GUARD_CONSOLE_H
+
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <pthread.h>
+#include <stdatomic.h>
+#include "myReadkey.h"
+#include "myBigChars.h"
+#include "myTerm.h"
+#include "mySimpleComputer.h"
+
+int print_accumulator(int accumulator);
+
+int print_instruction_counter(int selected_cell_index);
+
+int set_instruction_counter(int *selected_cell_index);
+
+int set_accumulator(int *accumulator);
+
+int print_operation();
+
+int print_flags(void);
+
+int draw_console(int *rows, int *cols);
+
+int print_big_chars(int value);
+
+int print_memory(int sc_memory[], int selected_cell_index);
+
+int memory_cell_selection (int direction, int* selected_cell_index);
+
+#endif /* __GUARD_CONSOLE_H */

@@ -5,7 +5,7 @@ SRCS = bc_bigcharread.c bc_bigcharwrite.c bc_box.c bc_getbigcharpos.c bc_printA.
 
 OBJS = $(SRCS:.c=.o)
 
-LIBRARY = myBigChars.a
+LIBRARY = libmyBigChars.a
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -17,3 +17,4 @@ $(LIBRARY): $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(LIBRARY)
+	rm -f *.o
