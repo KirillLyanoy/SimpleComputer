@@ -11,6 +11,10 @@
 #include "myTerm.h"
 #include "mySimpleComputer.h"
 
+extern int accumulator;
+extern int instruction_counter;
+extern int selected_cell_index;
+
 int print_accumulator(int accumulator);
 
 int print_instruction_counter(int selected_cell_index);
@@ -30,5 +34,19 @@ int print_big_chars(int value);
 int print_memory(int sc_memory[], int selected_cell_index);
 
 int memory_cell_selection (int direction, int* selected_cell_index);
+
+void* clock_pulse_generator(void* arg);
+
+int reset();
+
+int set_operation(int* op);
+
+void CU(int signum);
+
+int ALU();
+
+int set_memory_cell(int *selected_cell_index);
+
+int print_console(int* rows, int* cols);
 
 #endif /* __GUARD_CONSOLE_H */
