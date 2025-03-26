@@ -5,7 +5,7 @@ CFLAGS = -g
 
 TARGET = SimpleComputer
 
-all: mySimpleComputer.a myTerm.a myBigChars.a myReadkey.a SimpleComputer
+all: mySimpleComputer.a myTerm.a myBigChars.a myReadkey.a SimpleComputer clean
 
 mySimpleComputer.a:
 	cd mySimpleComputer && $(MAKE)
@@ -28,4 +28,12 @@ clean:
 	cd myBigChars && $(MAKE) clean
 	cd myReadkey && $(MAKE) clean
 	cd console && $(MAKE) clean
+	rm -f *.o
+
+clean_all:
+	cd mySimpleComputer && $(MAKE) clean
+	cd myTerm && $(MAKE) clean
+	cd myBigChars && $(MAKE) clean
+	cd myReadkey && $(MAKE) clean
+	cd console && $(MAKE) clean_all
 	rm -f *.o

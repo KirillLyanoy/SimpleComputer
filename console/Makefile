@@ -3,7 +3,7 @@ CFLAGS = -g -Wall -I../include
 LDFLAGS = -L../mySimpleComputer -L../myTerm -L../myBigChars -L../myReadkey
 LIBS = -lmySimpleComputer -lmyTerm -lmyBigChars -lmyReadkey
 
-TARGET = Main
+TARGET = SimpleComputer
 
 SRCS = $(wildcard *.c)
 
@@ -19,3 +19,7 @@ $(TARGET): $(OBJS)
 
 clean:
 	rm -f *.o
+	
+clean_all:
+	rm -f *.o
+	rm -f $(OBJ) $(TARGET)

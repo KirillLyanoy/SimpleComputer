@@ -3,9 +3,9 @@
 int reset() {
 
     sc_memoryInit();
-    set_accumulator(0);
-    set_instruction_counter(0);
-    set_operation(0);
+    accumulator = 0;
+    instruction_counter = 0;
+    selected_cell_index = 0;
 
     sc_regSet(1, 0); // MEMORY_OUT_OF_BOUNDS
     sc_regSet(2, 0); // COMMAND_NOT_FOUND

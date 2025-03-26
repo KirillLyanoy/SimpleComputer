@@ -73,7 +73,7 @@ int ALU(int command, int operand) {
         case 73: 
         case 74: 
         case 75: 
-        case 76:
+        case 76: break;
     }
 
     return 0;

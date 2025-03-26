@@ -7,7 +7,7 @@ void CU(int signum) {
 
     if (!clock_pulse_flag) {
         sc_regSet(5, 1);
-printf("hi");
+
         if (selected_cell_index + 1 < MEMORY_SIZE)
             selected_cell_index += 1;
         else 
