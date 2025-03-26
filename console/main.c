@@ -1,10 +1,12 @@
 #include "console.h"
 
 int main() {
+    printf("hi");
     reset();
 
     int clock_pulse_flag;
 
+        
     rk_mytermsave();
     int rows, cols;
 
@@ -19,6 +21,7 @@ int main() {
     
 
     while(1) {
+
         print_console(&rows, &cols);
 
         sc_regGet(5, &clock_pulse_flag);

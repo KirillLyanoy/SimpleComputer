@@ -3,7 +3,7 @@ CFLAGS = -g -Wall -I../include
 LDFLAGS = -L../mySimpleComputer -L../myTerm -L../myBigChars -L../myReadkey
 LIBS = -lmySimpleComputer -lmyTerm -lmyBigChars -lmyReadkey
 
-TARGET = SimpleComputer
+TARGET = Main
 
 SRCS = $(wildcard *.c)
 
