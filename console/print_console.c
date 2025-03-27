@@ -9,7 +9,6 @@ int print_console(int* rows, int* cols) {
         print_instruction_counter(selected_cell_index);
         print_operation();
         print_flags();
-        
         fflush(stdout);
 
         return 0;

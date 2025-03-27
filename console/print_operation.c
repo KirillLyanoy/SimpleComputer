@@ -11,7 +11,7 @@ int print_operation() {
 
             sc_commandDecode(value, &command, &operand);
 
-            mt_gotoXY (79, 5); printf("+%d : %d", command, operand);
+            mt_gotoXY (79, 8); printf("+%d : %d", command, operand);
             mt_gotoXY (0, 23);
     }
     return 0;

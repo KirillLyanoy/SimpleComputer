@@ -1,20 +1,15 @@
 #include "console.h"
 
 void CU(int signum) {
-
+    
     int clock_pulse_flag;
     sc_regGet(5, &clock_pulse_flag);
 
-    if (!clock_pulse_flag) {
-        sc_regSet(5, 1);
-
-        if (selected_cell_index + 1 < MEMORY_SIZE)
-            selected_cell_index += 1;
-        else 
-            selected_cell_index = 0;        
-
+    if (clock_pulse_flag == 0) {        
+        
         int value;
-        sc_memoryGet(selected_cell_index, &value);
+        int temp_selected_cell_index = selected_cell_index;
+        sc_memoryGet(temp_selected_cell_index, &value);                    
 
         if (((value >> 16) & 1) == 1) {
         
@@ -39,13 +34,19 @@ void CU(int signum) {
                     break;
 
                 default:
+                sc_regSet(5, 0);
                 sc_regSet(2, 1); break;
-            }
-
-            int rows, cols;
-            print_console(&rows, &cols);
-
-            sc_regSet(5, 0);
+            }            
         }
+
+        int rows, cols;
+        print_console(&rows, &cols);
+
+        if (selected_cell_index + 1 < MEMORY_SIZE)
+            selected_cell_index += 1;
+        else 
+            selected_cell_index = 0;   
+
+        
     }
 }

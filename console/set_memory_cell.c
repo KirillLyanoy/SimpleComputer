@@ -4,7 +4,6 @@ int set_memory_cell() {
     if (selected_cell_index < 0 || selected_cell_index >= MEMORY_SIZE) return -1;
 
     int cell_value;
-    
     rk_mytermrestore();
     printf("Cell memory value: ");
     while(1) {

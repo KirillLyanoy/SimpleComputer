@@ -7,8 +7,7 @@ int ALU(int command, int operand) {
             if (operand > 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
-                int value = accumulator + memory_value;
-                set_accumulator(&value);
+                accumulator += memory_value;
             }
             else {
                 sc_regSet(1, 1);
@@ -18,8 +17,7 @@ int ALU(int command, int operand) {
             if (operand > 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
-                int value = accumulator - memory_value;
-                set_accumulator(&value);
+                accumulator -= memory_value;                
             }
             else {
                 sc_regSet(1, 1);
@@ -34,8 +32,7 @@ int ALU(int command, int operand) {
                     sc_regSet(3, 1);
                     sc_regSet(5, 1);                    
                 } else {
-                    int value = accumulator / memory_value;
-                    set_accumulator(&value);
+                    accumulator /= memory_value;
                 }
             }
             else {
@@ -46,8 +43,7 @@ int ALU(int command, int operand) {
             if (operand > 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
-                int value = accumulator * memory_value;
-                set_accumulator(&value);
+                accumulator *= memory_value;
             }
             else {
                 sc_regSet(1, 1);
