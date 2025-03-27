@@ -24,6 +24,8 @@ int rk_readkey (int *key) {
                 case '7': *key = KEY_7; return 0;
                 case '8': *key = KEY_8; return 0;
                 case '9': *key = KEY_9; return 0;
+                case 10: *key = KEY_ENTER; return 0;
+                case 27: *key = KEY_ESCAPE; return 0;
                 default: 
                     return -1;
             }

@@ -3,7 +3,7 @@
 int print_memory(int sc_memory[], int selected_cell_index) {
     if (sc_memory == NULL) return -1;
     int x = 2, y = 2;
-    int command, operand, value, selected_cell_value;
+    int value, selected_cell_value;
     for (int i = 0; i < 100; i+=10) {
         mt_gotoXY(x, y);
         for (int j = 0; j < 10; j++) {
@@ -11,13 +11,21 @@ int print_memory(int sc_memory[], int selected_cell_index) {
             if (selected_cell_index == i + j) {
                 mt_setfgcolor(BLACK);
                 mt_setbgcolor(WHITE);
-                printf("+%04d", sc_commandDecode(value, &command, &operand));
+                if (((value >> 16) & 1) == 1) printf("+");
+                else printf(" ");
+
+                printf("%04X", (value & 0xFFFF));
                 selected_cell_value = value;
                 mt_setbgcolor(DEFAULT);
                 mt_setfgcolor(DEFAULT);
                 printf(" ");
             }
-            else printf("+%04d ", sc_commandDecode(value, &command, &operand));
+            else {
+                if (((value >> 16) & 1) == 1) printf("+");
+                else printf(" ");
+                
+                printf("%04X ", (value & 0xFFFF));
+            }
         }
         printf("\n");
         y +=1; 

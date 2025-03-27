@@ -45,7 +45,7 @@ void CU(int signum);
 
 int ALU();
 
-int set_memory_cell(int *selected_cell_index);
+int set_memory_cell();
 
 int print_console(int* rows, int* cols);
 

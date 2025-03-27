@@ -16,7 +16,7 @@ void CU(int signum) {
         int value;
         sc_memoryGet(selected_cell_index, &value);
 
-        if (((value >> 14) & 1) == 1) {
+        if (((value >> 16) & 1) == 1) {
         
             int command;
             int operand;

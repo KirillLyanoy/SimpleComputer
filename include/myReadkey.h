@@ -22,8 +22,8 @@
 #define KEY_RIGHT 40
 #define KEY_F5 41
 #define KEY_F6 42
-#define Enter 43
-#define Escape 44
+#define KEY_ENTER 10
+#define KEY_ESCAPE 27
 
 #include <unistd.h>
 #include <termios.h>

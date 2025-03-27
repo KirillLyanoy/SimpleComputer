@@ -21,6 +21,7 @@ int main() {
 
     while(1) {
         sc_regGet(5, &clock_pulse_flag);
+        print_console(&rows, &cols);
         if (clock_pulse_flag) {
             rk_readkey(&key);
             if (37 <= key && key <= 40) {
@@ -29,6 +30,8 @@ int main() {
                 switch(key) {            
                     case (9): //i                                          
                         reset(); break;
+                    case (10):  //enter
+                        set_memory_cell(); break;
                     case (12): //l 
                         sc_memoryLoad(file); break;
                     case (18): //r 
@@ -36,6 +39,8 @@ int main() {
                     case (19): //s 
                         sc_memorySave(file); break;                  
                     case (20): //t 
+                        break;
+                    case (27): //escape
                         break;
                     case (41): //f5                
                         set_accumulator(&accumulator); break;
@@ -49,9 +54,7 @@ int main() {
         }
         else {
             sleep(500);
-        }
-
-        print_console(&rows, &cols);
+        }        
     }
     rk_mytermrestore();
     return 0;
