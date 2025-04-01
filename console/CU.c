@@ -28,14 +28,103 @@ void CU(int signum) {
                     ALU(command, operand); 
                     break;
 
-                case 10: case 11: case 20: case 21: case 40: 
-                case 41: case 42: case 43: case 55: case 56: 
-                case 57: case 58: case 59:                    
+                case 10: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        selected_cell_index = operand;
+                        set_memory_cell();
+                        break;
+                    }
+                case 11: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        int value;
+                        sc_memoryGet(operand, &value);
+                        printf("Cell %d value: %X", operand, value);
+                        break;
+                    }
+                case 20: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        sc_memoryGet(operand, &accumulator);                       
+                        break;
+                    }
+                case 21: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        sc_memorySet(operand, accumulator);                       
+                        break;
+                    }
+                case 40: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        selected_cell_index = operand;                       
+                        break;
+                    }                
+                case 41: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        if (accumulator < 0) {
+                            selected_cell_index = operand;  
+                        }                                             
+                        break;
+                    }  
+                case 42: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        if (accumulator == 0) {
+                            selected_cell_index = operand;  
+                        }                                             
+                        break;
+                    }  
+                case 43: 
+                    sc_regSet(5, 1);
+                    break;
+                case 55: 
+                    if (operand < 0 || operand >= MEMORY_SIZE) {
+                        sc_regSet(1, 1);
+                        sc_regSet(5, 1); 
+                    }
+                    else {
+                        if (accumulator > 0) {
+                            selected_cell_index = operand;  
+                        }                                             
+                        break;
+                    }
+                case 56: 
+                    break;
+                case 57: 
+                    break;
+                case 58: 
+                    break;
+                case 59:                    
                     break;
 
                 default:
-                sc_regSet(5, 0);
-                sc_regSet(2, 1); break;
+                    sc_regSet(5, 0);
+                    sc_regSet(2, 1); 
+                    break;
             }            
         }
 
