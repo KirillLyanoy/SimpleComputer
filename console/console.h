@@ -41,12 +41,14 @@ int reset();
 
 int set_operation(int* op);
 
-void CU(int signum);
+void CU();
 
 int ALU();
 
 int set_memory_cell();
 
 int print_console(int* rows, int* cols);
+
+void IRC(int signum);
 
 #endif /* __GUARD_CONSOLE_H */
