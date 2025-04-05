@@ -29,6 +29,6 @@ int draw_console(int *rows, int *cols) {
     mt_gotoXY (2, 26); printf("%d:", CPU_cache_lines[2]);
     mt_gotoXY (2, 27); printf("%d:", CPU_cache_lines[3]);
     mt_gotoXY (2, 28); printf("%d:", CPU_cache_lines[4]);
-    mt_gotoXY (0, 30);
+    mt_gotoXY (0, 29);
     return 0;
 }

@@ -21,7 +21,7 @@ int sc_memoryGet(int address, int* value) {
         for (int i = 0; i < 5; i++) {
             if (CPU_cache_lines[i] == -1) {
 
-                sleep(5);
+                sleep(3);
                 
                 CPU_cache_lines[i] = address / 10 * 10;
                 for (int j = 0; j < 10; j++) {
@@ -47,13 +47,13 @@ int sc_memoryGet(int address, int* value) {
         }
 
         //write from cache to memory
-        sleep(5);
+        sleep(3);
         for (int i = 0; i < 10; i++) {
            sc_memory[CPU_cache_lines[min] + i] = CPU_cache[min * 10 + i];
         }
 
         //load from memory to cache
-        sleep(5);
+        sleep(3);
         for (int i = 0; i < 10; i++) {
            CPU_cache[min * 10 + i] = sc_memory[address / 10 * 10 + i];
         }

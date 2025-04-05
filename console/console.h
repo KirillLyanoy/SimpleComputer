@@ -53,4 +53,6 @@ void IRC(int signum);
 
 void print_CPU_cache();
 
+void print_access_cache_time();
+
 #endif /* __GUARD_CONSOLE_H */
