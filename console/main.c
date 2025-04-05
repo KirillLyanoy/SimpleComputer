@@ -29,13 +29,13 @@ int main(int argc, char *argv[]) {
     pthread_create(&clock_pulse_generator_thread, NULL, clock_pulse_generator, NULL);    
     while(1) {
         sc_regGet(5, &clock_pulse_flag);
-        print_console(&rows, &cols);
-        rk_readkey(&key);
 
-        if (key == 20) {
-            sc_regSet(5, 1);
-        }
-        else {
+        if (clock_pulse_flag) {
+
+            print_console(&rows, &cols);
+
+            rk_readkey(&key);          
+        
             if (clock_pulse_flag) {
                 if (37 <= key && key <= 40) {
                     memory_cell_selection(key, &selected_cell_index);              
@@ -52,25 +52,25 @@ int main(int argc, char *argv[]) {
                             sc_regSet(5, 0);
                         case (19): //s 
                             sc_memorySave(file); break; 
-                        case (27): //escape
+                        case (20): //t
+                            CU();
                             break;
+                        case (27): //escape
+                            return 0;
                         case (41): { //f5    
-                            if (clock_pulse_flag) set_accumulator(&accumulator); 
+                            set_accumulator(&accumulator); 
                             break;
                         }
                         case (42): { //f6
-                            if (clock_pulse_flag) set_instruction_counter(&selected_cell_index); 
+                            set_instruction_counter(&selected_cell_index); 
                                 break;
                         }
-                        case (43): {
-                            if (clock_pulse_flag) set_memory_cell(&selected_cell_index); 
-                                break;
-                            }
                         default: break;
                     }
                 }  
-            }
+            }            
         }
+        else usleep(500000);
     }
     rk_mytermrestore();
     return 0;

@@ -19,10 +19,11 @@ int draw_console(int *rows, int *cols) {
     mt_gotoXY (46, 14); printf(" l - load");
     mt_gotoXY (46, 15); printf(" s - save");
     mt_gotoXY (46, 16); printf(" r - run");
-    mt_gotoXY (46, 17); printf(" t - stop");
+    mt_gotoXY (46, 17); printf(" t - step");
     mt_gotoXY (46, 18); printf(" i - reset");
     mt_gotoXY (46, 19); printf(" F5 - accumulator");
     mt_gotoXY (46, 20); printf(" F6 - instructionCounter");
+    mt_gotoXY (46, 21); printf(" Esc - exit");
     mt_gotoXY (43, 23); printf("CPU cache");    
     mt_gotoXY (2, 24); printf("%02d:", CPU_cache_lines[0]);
     mt_gotoXY (2, 25); printf("%02d:", CPU_cache_lines[1]);

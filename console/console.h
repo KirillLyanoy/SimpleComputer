@@ -54,4 +54,6 @@ void print_CPU_cache();
 
 void print_access_cache_time();
 
+void select_next_cell(void);
+
 #endif /* __GUARD_CONSOLE_H */

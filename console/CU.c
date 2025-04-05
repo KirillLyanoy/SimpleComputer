@@ -2,6 +2,8 @@
 
 void CU() {           
     pthread_mutex_lock(&lock);
+       
+    int rows, cols;
 
     int value;
     int temp_selected_cell_index = selected_cell_index;
@@ -23,6 +25,7 @@ void CU() {
             case 72: case 73: case 74: case 75: case 76:
                 int result = ALU(command, operand); 
                 if (result == -1) sc_regSet(5, 1);
+                select_next_cell();
                 break;
 
             case 10: 
@@ -33,6 +36,7 @@ void CU() {
                 }
                 else {                        
                     set_memory_cell(operand);
+                    select_next_cell();
                     break;
                 }
             case 11: 
@@ -44,7 +48,8 @@ void CU() {
                 else {
                     int value;
                     sc_memoryGet(operand, &value);
-                    printf("Cell %d value: %d", operand, value);
+                    printf("Cell %d value: %d\n", operand, value);                    
+                    select_next_cell();
                     break;
                 }
             case 20: 
@@ -54,7 +59,8 @@ void CU() {
                     break;
                 }
                 else {
-                    sc_memoryGet(operand, &accumulator);                       
+                    sc_memoryGet(operand, &accumulator);           
+                    select_next_cell();            
                     break;
                 }
             case 21: 
@@ -64,7 +70,8 @@ void CU() {
                     break;
                 }
                 else {
-                    sc_memorySet(operand, accumulator);                       
+                    sc_memorySet(operand, accumulator);    
+                    select_next_cell();                   
                     break;
                 }
             case 40: 
@@ -102,8 +109,7 @@ void CU() {
                     break;
                 }  
             case 43: 
-                sc_regSet(5, 1);
-                return;
+                sc_regSet(5, 1);                
                 break;
             case 55: 
                 if (operand < 0 || operand >= MEMORY_SIZE) {
@@ -129,15 +135,9 @@ void CU() {
                 sc_regSet(5, 1);
                 sc_regSet(2, 1); 
                 break;
-        }            
-    }
-    int rows, cols;
-    print_console(&rows, &cols);
-
-    if (selected_cell_index + 1 < MEMORY_SIZE)
-        selected_cell_index += 1;
-    else 
-        selected_cell_index = 0;   
-
+        }   
+        print_console(&rows, &cols);         
+    }    
+    
     pthread_mutex_unlock(&lock);
 }
