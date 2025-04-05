@@ -11,7 +11,13 @@ int sc_memoryGet(int address, int* value) {
         for (int i = 0; i < 5; i++) {
             if (CPU_cache_lines[i] == (address / 10 * 10)) {
 
-                *value = CPU_cache[i * 10 + (address % (address / 10 * 10 ))];   
+                if (address < 10) {
+                    *value = CPU_cache[i * 10 + address]; 
+                }
+                else {
+                    *value = CPU_cache[i * 10 + (address % (address / 10 * 10 ))]; 
+                }
+                  
                 access_cache_time[i] = time(NULL);
                 return 0;                            
             }
@@ -28,7 +34,13 @@ int sc_memoryGet(int address, int* value) {
                     CPU_cache[i * 10 + j] = sc_memory[address / 10 * 10 + j];
                 }               
 
-                *value = CPU_cache[i * 10 + (address % (address / 10 * 10 ))]; 
+                if (address < 10) {
+                    *value = CPU_cache[i * 10 + address];
+                }
+                else {
+                    *value = CPU_cache[i * 10 + (address % (address / 10 * 10 ))]; 
+                }
+
                 access_cache_time[i] = time(NULL);
                 return 0;
             }
@@ -59,7 +71,13 @@ int sc_memoryGet(int address, int* value) {
         }
         CPU_cache_lines[min] = address / 10 * 10;
 
-        *value = CPU_cache[min * 10 + (address % (address / 10 * 10 ))]; 
+        if (address < 10) {
+            *value = CPU_cache[min * 10 + address];
+        }
+        else {
+            *value = CPU_cache[min * 10 + (address % (address / 10 * 10 ))];
+        }
+         
         access_cache_time[min] = time(NULL);
 
         return 0;

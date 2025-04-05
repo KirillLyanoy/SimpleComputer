@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
                         case (9): //i                                          
                             reset(); break;
                         case (10):  //enter
-                            set_memory_cell();                       
+                            set_memory_cell(selected_cell_index);                       
                             break;
                         case (12): //l 
                             sc_memoryLoad(file); break;

@@ -14,6 +14,7 @@
 extern int accumulator;
 extern int instruction_counter;
 extern int selected_cell_index;
+extern pthread_mutex_t lock;
 
 int print_accumulator(int accumulator);
 
@@ -39,13 +40,11 @@ void* clock_pulse_generator(void* arg);
 
 int reset();
 
-int set_operation(int* op);
-
 void CU();
 
 int ALU(int command, int operand);
 
-int set_memory_cell();
+int set_memory_cell(int address);
 
 int print_console(int* rows, int* cols);
 

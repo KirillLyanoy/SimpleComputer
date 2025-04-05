@@ -4,7 +4,7 @@ int ALU(int command, int operand) {
 
     switch(command) {
         case 30: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
                 accumulator += memory_value;
@@ -16,7 +16,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 31: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
                 accumulator -= memory_value;                
@@ -28,7 +28,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 32: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -47,7 +47,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 33: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
                 accumulator *= memory_value;
@@ -59,7 +59,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 51: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                     int value = ~accumulator;
                     sc_memorySet(operand, value);
                 }
@@ -70,7 +70,7 @@ int ALU(int command, int operand) {
                 }
                 break;
         case 52: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                     int memory_value;
                     sc_memoryGet(operand, &memory_value);
 
@@ -83,7 +83,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 53: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -96,7 +96,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 54: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -109,7 +109,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 60: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -122,7 +122,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 61: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -135,7 +135,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 62: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -152,7 +152,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 63: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);
 
@@ -169,7 +169,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 64: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int memory_value;
                 sc_memoryGet(operand, &memory_value);                
 
@@ -182,7 +182,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 65: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int first_value;
                 int second_value;
 
@@ -205,7 +205,7 @@ int ALU(int command, int operand) {
             }
             break;           
         case 66: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 int first_value;
                 int second_value;
 
@@ -226,7 +226,7 @@ int ALU(int command, int operand) {
             }
             break;
         case 67: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -245,7 +245,7 @@ int ALU(int command, int operand) {
             }
             break;            
         case 68: 
-                if (operand > 0 && operand < MEMORY_SIZE) {
+                if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -266,7 +266,7 @@ int ALU(int command, int operand) {
             }
             break;            
         case 69: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -288,7 +288,7 @@ int ALU(int command, int operand) {
             }
             break;            
         case 70: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -310,7 +310,7 @@ int ALU(int command, int operand) {
             }
             break;                      
         case 71: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -332,7 +332,7 @@ int ALU(int command, int operand) {
             }
             break;         
         case 72: 
-            if (operand > 0 && operand < MEMORY_SIZE) {                             
+            if (operand >= 0 && operand < MEMORY_SIZE) {                             
 
                 if (((accumulator >> 16) & 1) == 0 && accumulator >= 0 && accumulator < MEMORY_SIZE) {    
                    int value;
@@ -353,7 +353,7 @@ int ALU(int command, int operand) {
             }
             break;        
         case 73: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -385,7 +385,7 @@ int ALU(int command, int operand) {
             }
             break;    
         case 74: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 if (((accumulator >> 16) & 1) == 0 && accumulator >= 0 && accumulator < MEMORY_SIZE) {    
                     int first_addr;
                     sc_memoryGet(accumulator, &first_addr);
@@ -423,7 +423,7 @@ int ALU(int command, int operand) {
             }
             break;    
         case 75: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 if (((accumulator >> 16) & 1) == 0 && accumulator >= 0 && accumulator < MEMORY_SIZE) {    
                     int first_addr;
                     sc_memoryGet(accumulator, &first_addr);
@@ -464,7 +464,7 @@ int ALU(int command, int operand) {
             }
             break;  
         case 76: 
-            if (operand > 0 && operand < MEMORY_SIZE) {
+            if (operand >= 0 && operand < MEMORY_SIZE) {
                 if (((accumulator >> 16) & 1) == 0 && accumulator >= 0 && accumulator < MEMORY_SIZE) {    
                     int first_addr;
                     sc_memoryGet(accumulator, &first_addr);

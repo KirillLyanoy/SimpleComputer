@@ -13,5 +13,11 @@ int reset() {
     sc_regSet(4, 0); // OVERFLOW_DURING_OPERATION
     sc_regSet(5, 1); // CLOCK_PULSES_IGNORED
 
+    for (int i = 0; i < 5; i++) {
+        CPU_cache_lines[i] = -1;
+    }
+
+    sc_cpuCacheInit();
+
     return 0;
 }
