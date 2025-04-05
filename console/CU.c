@@ -121,7 +121,6 @@ void CU() {
                 break;
             case 59:                    
                 break;
-
             default:
                 sc_regSet(5, 0);
                 sc_regSet(2, 1); 

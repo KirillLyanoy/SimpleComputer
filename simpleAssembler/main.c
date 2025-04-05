@@ -120,20 +120,39 @@ int command_number(char command[]) {
         if (!strcmp(command, "SUBC")) {
         return 76; 
     } else {
+        if (!strcmp(command, "=")) {
+        return 100; 
+    } else {
         return -1;
-    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 int translate (char line[]) {
 
-    
     int index = 0, operand = 0;
     char command[6];
+
+
+    if (strchr(line, '=')) {
+        
+        sscanf(line, "%d %5s %x", &index, command, &operand);       
+
+        if (command_number(command) == 100 && operand <= 65535) {
+            
+            memory[index] = operand;
+            return 0;
+        }
+        else return -1;
+    }
+    
+
 
     sscanf(line, "%d %5s %d", &index, command, &operand);
 
     int command_num = command_number(command);
     if (command_num == -1) return -1;
+
+
 
     memory[index] = (1 << 16) | (command_num << 8) | operand;
     return 0;
@@ -159,7 +178,7 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    char line[12]; 
+    char line[16]; 
         
     while (fgets(line, sizeof(line), input) != NULL) {
         translate(line);
