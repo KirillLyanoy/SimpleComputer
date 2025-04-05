@@ -2,6 +2,9 @@
 
 int main(int argc, char *argv[]) {
     reset();
+    
+
+    sc_cpuCacheInit();
     char file[100];
 
     if (argc > 1) {
@@ -12,7 +15,6 @@ int main(int argc, char *argv[]) {
 
     int rows, cols;
     print_console(&rows, &cols);
-
     int clock_pulse_flag;
 
     rk_mytermsave();
@@ -20,6 +22,7 @@ int main(int argc, char *argv[]) {
     int key;
     rk_mytermregime(0, 0, 1, 0, 1);
     sc_memoryInit();
+
     
     signal(SIGALRM, IRC);
     pthread_t clock_pulse_generator_thread;
@@ -67,7 +70,6 @@ int main(int argc, char *argv[]) {
                     }
                 }  
             }
-            else usleep(200000); 
         }
     }
     rk_mytermrestore();

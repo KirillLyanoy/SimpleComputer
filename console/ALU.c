@@ -11,6 +11,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 31: 
@@ -21,6 +23,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 32: 
@@ -30,13 +34,16 @@ int ALU(int command, int operand) {
 
                 if (memory_value == 0) {
                     sc_regSet(3, 1);
-                    sc_regSet(5, 1);                    
+                    sc_regSet(5, 1);  
+                    return -1;                  
                 } else {
                     accumulator /= memory_value;
                 }
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 33: 
@@ -47,6 +54,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 51: 
@@ -56,6 +65,8 @@ int ALU(int command, int operand) {
                 }
                 else {
                     sc_regSet(1, 1);
+                    sc_regSet(5, 1);
+                    return -1;
                 }
                 break;
         case 52: 
@@ -67,6 +78,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 53: 
@@ -78,6 +91,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 54: 
@@ -89,6 +104,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 60: 
@@ -100,6 +117,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 61: 
@@ -111,6 +130,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 62: 
@@ -126,6 +147,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 63: 
@@ -141,6 +164,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 64: 
@@ -152,6 +177,8 @@ int ALU(int command, int operand) {
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;
         case 65: 
@@ -168,11 +195,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;           
         case 66: 
@@ -189,7 +218,7 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
@@ -208,7 +237,7 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
@@ -216,7 +245,7 @@ int ALU(int command, int operand) {
             }
             break;            
         case 68: 
-                    if (operand > 0 && operand < MEMORY_SIZE) {
+                if (operand > 0 && operand < MEMORY_SIZE) {
                 
                 int value;
                 sc_memoryGet(operand, &value);
@@ -227,11 +256,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;            
         case 69: 
@@ -247,11 +278,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;            
         case 70: 
@@ -267,11 +300,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;                      
         case 71: 
@@ -287,11 +322,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;         
         case 72: 
@@ -306,11 +343,13 @@ int ALU(int command, int operand) {
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;        
         case 73: 
@@ -330,17 +369,19 @@ int ALU(int command, int operand) {
                     else {
                         sc_regSet(1, 1);
                         sc_regSet(5, 1);   
-                        break;
+                        return -1;
                     }
                 } 
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;    
         case 74: 
@@ -359,24 +400,26 @@ int ALU(int command, int operand) {
                         }
                         else {
                             sc_regSet(1, 1);
-                            sc_regSet(5, 1);   
-                            break;
+                            sc_regSet(5, 1);
+                            return -1;
                         }                      
                     }
                     else {
                         sc_regSet(1, 1);
                         sc_regSet(5, 1);   
-                        break;
+                        return -1;
                     }
                 } 
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;    
         case 75: 
@@ -399,23 +442,25 @@ int ALU(int command, int operand) {
                         else {
                             sc_regSet(1, 1);
                             sc_regSet(5, 1);   
-                            break;
+                            return -1;
                         }                      
                     }
                     else {
                         sc_regSet(1, 1);
                         sc_regSet(5, 1);   
-                        break;
+                        return -1;
                     }
                 } 
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;  
         case 76: 
@@ -438,23 +483,25 @@ int ALU(int command, int operand) {
                         else {
                             sc_regSet(1, 1);
                             sc_regSet(5, 1);   
-                            break;
+                            return -1;
                         }                      
                     }
                     else {
                         sc_regSet(1, 1);
                         sc_regSet(5, 1);   
-                        break;
+                        return -1;
                     }
                 } 
                 else {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1);   
-                    break;
+                    return -1;
                 }                
             }
             else {
                 sc_regSet(1, 1);
+                sc_regSet(5, 1);
+                return -1;
             }
             break;  
     }

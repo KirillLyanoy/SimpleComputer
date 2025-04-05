@@ -5,6 +5,6 @@ int print_instruction_counter(int selected_cell_index) {
 
     //mt_gotoXY (75, 5); printf("+%04x", selected_cell_index);
     mt_gotoXY (77, 5); printf("%d", selected_cell_index);
-    mt_gotoXY (0, 23);
+    mt_gotoXY (0, 31);
     return 0;
 }

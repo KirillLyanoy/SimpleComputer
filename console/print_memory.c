@@ -7,7 +7,8 @@ int print_memory(int sc_memory[], int selected_cell_index) {
     for (int i = 0; i < 100; i+=10) {
         mt_gotoXY(x, y);
         for (int j = 0; j < 10; j++) {
-            sc_memoryGet(i + j, &value);
+            
+            value = sc_memory[i + j];
             if (selected_cell_index == i + j) {
                 mt_setfgcolor(BLACK);
                 mt_setbgcolor(WHITE);
@@ -33,6 +34,6 @@ int print_memory(int sc_memory[], int selected_cell_index) {
     }
     print_big_chars(selected_cell_value);
        
-    mt_gotoXY (0, 24);
+    mt_gotoXY (0, 31);
     return 0;
 }

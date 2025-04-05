@@ -1,7 +1,9 @@
 #include "console.h"
 
-void CU() {   
-        
+void CU() {           
+    
+    sc_regSet(5, 1);
+
     int value;
     int temp_selected_cell_index = selected_cell_index;
     sc_memoryGet(temp_selected_cell_index, &value);                    
@@ -20,13 +22,15 @@ void CU() {
             case 62: case 63: case 64: case 65: case 66: 
             case 67: case 68: case 69: case 70: case 71: 
             case 72: case 73: case 74: case 75: case 76:
-                ALU(command, operand); 
-                break;
+                int result = ALU(command, operand); 
+                if (result == -1) return;
+                else break;
 
             case 10: 
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1); 
+                    return;
                 }
                 else {      
                     rk_mytermrestore();           
@@ -42,7 +46,8 @@ void CU() {
             case 11: 
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
-                    sc_regSet(5, 1); 
+                    sc_regSet(5, 1);
+                    return; 
                 }
                 else {
                     int value;
@@ -54,6 +59,7 @@ void CU() {
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1); 
+                    return;
                 }
                 else {
                     sc_memoryGet(operand, &accumulator);                       
@@ -63,6 +69,7 @@ void CU() {
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1); 
+                    return;
                 }
                 else {
                     sc_memorySet(operand, accumulator);                       
@@ -72,6 +79,7 @@ void CU() {
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1); 
+                    return;
                 }
                 else {
                     selected_cell_index = operand;                       
@@ -80,7 +88,8 @@ void CU() {
             case 41: 
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
-                    sc_regSet(5, 1); 
+                    sc_regSet(5, 1);
+                    return; 
                 }
                 else {
                     if (accumulator < 0) {
@@ -92,6 +101,7 @@ void CU() {
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
                     sc_regSet(5, 1); 
+                    return;
                 }
                 else {
                     if (accumulator == 0) {
@@ -101,11 +111,13 @@ void CU() {
                 }  
             case 43: 
                 sc_regSet(5, 1);
+                return;
                 break;
             case 55: 
                 if (operand < 0 || operand >= MEMORY_SIZE) {
                     sc_regSet(1, 1);
-                    sc_regSet(5, 1); 
+                    sc_regSet(5, 1);
+                    return; 
                 }
                 else {
                     if (accumulator > 0) {
@@ -122,13 +134,18 @@ void CU() {
             case 59:                    
                 break;
             default:
-                sc_regSet(5, 0);
+                sc_regSet(5, 1);
                 sc_regSet(2, 1); 
-                break;
+                return;
         }            
     }
+
+    int rows, cols;
+    print_console(&rows, &cols);
+
     if (selected_cell_index + 1 < MEMORY_SIZE)
         selected_cell_index += 1;
     else 
-        selected_cell_index = 0;     
+        selected_cell_index = 0;   
+    sc_regSet(5, 0);
 }

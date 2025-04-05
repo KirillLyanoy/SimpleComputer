@@ -6,6 +6,6 @@ int print_accumulator(int accumulator) {
     if (((accumulator >> 16) & 1) == 1) printf("+");
     printf("%04X", accumulator);
 
-    mt_gotoXY (0, 23);
+    mt_gotoXY (0, 31);
     return 0;
 }

@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 
 #define MEMORY_SIZE 100
 #define REGISTER_SIZE 5
@@ -14,6 +16,9 @@
 #define CLOCK_PULSES_IGNORED 5         // 10000
 
 extern int sc_memory[MEMORY_SIZE];
+extern int CPU_cache[50];
+extern int CPU_cache_lines[5];
+extern time_t access_cache_time[5];
 extern int registr;
 
 int sc_memoryInit();
@@ -35,5 +40,7 @@ int sc_regGet(int registrNum, int* value);
 int sc_commandEncode(int command, int operand, int* value);
 
 int sc_commandDecode(int value, int* command, int* operand);
+
+int sc_cpuCacheInit(void);
 
 #endif /* __GUARD_MYSIMPLECOMPUTER_H */

@@ -59,6 +59,8 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "console.h": "c",
-    "type_traits": "c"
+    "type_traits": "c",
+    "time.h": "c",
+    "unistd.h": "c"
   }
 }

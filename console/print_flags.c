@@ -32,6 +32,6 @@ int print_flags(void) {
             y += 2;
         }
     }
-    mt_gotoXY (0, 23);
+    mt_gotoXY (0, 31);
     return 0;
 }
