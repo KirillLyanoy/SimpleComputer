@@ -1,6 +1,7 @@
 #include "console.h"
 
-void CU() {           
+void CU() {    
+
     pthread_mutex_lock(&lock);
        
     int rows, cols;
@@ -93,7 +94,10 @@ void CU() {
                 else {
                     if (accumulator < 0) {
                         selected_cell_index = operand;  
-                    }                                             
+                    }  
+                    else {
+                        select_next_cell();  
+                    }                                           
                     break;
                 }  
             case 42: 
@@ -105,7 +109,10 @@ void CU() {
                 else {
                     if (accumulator == 0) {
                         selected_cell_index = operand;  
-                    }                                             
+                    }       
+                    else {
+                        select_next_cell();  
+                    }                                      
                     break;
                 }  
             case 43: 
@@ -120,16 +127,81 @@ void CU() {
                 else {
                     if (accumulator > 0) {
                         selected_cell_index = operand;  
-                    }                                             
+                    }     
+                    else {
+                        select_next_cell();  
+                    }                                           
                     break;
                 }
             case 56: 
+                if (operand < 0 || operand >= MEMORY_SIZE) {
+                    sc_regSet(1, 1);
+                    sc_regSet(5, 1);
+                    break; 
+                }
+                else {
+                    int reg;
+                    sc_regGet(4, &reg);
+
+                    if (reg) {
+                        selected_cell_index = operand;  
+                    }     
+                    else {
+                        select_next_cell();  
+                    }                                           
+                    break;
+                }
                 break;
             case 57: 
+                if (operand < 0 || operand >= MEMORY_SIZE) {
+                    sc_regSet(1, 1);
+                    sc_regSet(5, 1);
+                    break; 
+                }
+                else {
+                    int reg;
+                    sc_regGet(4, &reg);
+
+                    if (!reg) {
+                        selected_cell_index = operand;  
+                    }     
+                    else {
+                        select_next_cell();  
+                    }                                           
+                    break;
+                }
                 break;
             case 58: 
+                if (operand < 0 || operand >= MEMORY_SIZE) {
+                    sc_regSet(1, 1);
+                    sc_regSet(5, 1);
+                    break; 
+                }
+                else {
+                    if (accumulator % 2 == 0) {
+                        selected_cell_index = operand;  
+                    }     
+                    else {
+                        select_next_cell();  
+                    }                                           
+                    break;
+                }
                 break;
             case 59:                    
+                                if (operand < 0 || operand >= MEMORY_SIZE) {
+                    sc_regSet(1, 1);
+                    sc_regSet(5, 1);
+                    break; 
+                }
+                else {
+                    if (accumulator % 2 != 0) {
+                        selected_cell_index = operand;  
+                    }     
+                    else {
+                        select_next_cell();  
+                    }                                           
+                    break;
+                }
                 break;
             default:
                 sc_regSet(5, 1);
@@ -137,7 +209,10 @@ void CU() {
                 break;
         }   
         print_console(&rows, &cols);         
-    }    
-    
+    }       
+    else {
+        select_next_cell();  
+        print_console(&rows, &cols); 
+    } 
     pthread_mutex_unlock(&lock);
 }
